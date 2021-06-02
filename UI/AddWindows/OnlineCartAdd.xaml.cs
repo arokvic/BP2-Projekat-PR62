@@ -25,8 +25,8 @@ namespace UI.AddWindows
         bool check;
         public OnlineCartAdd(OnlineCart oc)
         {
-            
 
+            id = oc.Id;
             if (oc == null)
             {
                 check = false;
@@ -51,29 +51,59 @@ namespace UI.AddWindows
 
 
 
-                     OnlineCart f = new OnlineCart()
-                    {
-                            NumberOfArticles = 0,
-                            Price = 0
+            if (nameTxt.Text != "" )
+            {
 
-                    };
+                OnlineCart f = new OnlineCart()
+                {
+                    NumberOfArticles = Int32.Parse(nameTxt.Text)
 
-                    OnlineCartCRUD fc = new OnlineCartCRUD();
+                };
+                OnlineCartCRUD fc = new OnlineCartCRUD();
 
-                    if (fc.InsertOnlineCart(f))
-                    {
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Unable to add entity", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                //List<Factory> l = fc.GetFactoryList();
+
+                if (fc.UpdateOnlineCart(f, id))
+                {
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Unable to add entity", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+
+                MessageBox.Show("Empty fields!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
 
 
-                
-              
-            
-           
+
+            /*    OnlineCart f = new OnlineCart()
+               {
+                       NumberOfArticles = 0,
+                       Price = 0
+
+               };
+
+               OnlineCartCRUD fc = new OnlineCartCRUD();
+
+               if (fc.InsertOnlineCart(f))
+               {
+                   Close();
+               }
+               else
+               {
+                   MessageBox.Show("Unable to add entity", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+               }
+            */
+
+
+
+
+
         }
     }
 }

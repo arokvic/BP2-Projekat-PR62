@@ -31,9 +31,22 @@ namespace UI.TableWindows
 
         private void insertBtn_Click(object sender, RoutedEventArgs e)
         {
-            OnlineCartAdd fa = new OnlineCartAdd(null);
-            fa.ShowDialog();
+            //  OnlineCartAdd fa = new OnlineCartAdd(null);
+            //  fa.ShowDialog();
+            OnlineCart f = new OnlineCart()
+            {
+                NumberOfArticles = 0,
+                Price = 0
+
+            };
+
             OnlineCartCRUD fc = new OnlineCartCRUD();
+
+            if (!fc.InsertOnlineCart(f)) { 
+           
+                MessageBox.Show("Unable to add entity", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+           // OnlineCartCRUD fc = new OnlineCartCRUD();
             dGrid.ItemsSource = fc.GetOnlineCartList();
         }
 

@@ -63,6 +63,7 @@ namespace UI.TableWindows
                 {
                     OnlineCart n = oc.GetOnlineCartById(item.Id);
                     n.Price -= f.Price;
+                    n.NumberOfArticles--;
                     oc.UpdateOnlineCart(n, n.Id);
                     foreach (var item2 in ol)
                     {
