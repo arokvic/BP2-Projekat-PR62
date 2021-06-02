@@ -9,9 +9,9 @@
     <Grid>
         <DataGrid x:Name="dGrid" Margin="29,23,29,99" RenderTransformOrigin="0.466,0.498" IsReadOnly="True " AutoGenerateColumns="False">
             <DataGrid.Columns>
-                
-                <DataGridTextColumn Header="CustomerJMBG" Binding="{Binding CustomerJMBG}"/>
-                <DataGridTextColumn Header="Account number" Binding="{Binding AccountNumber}"/>
+
+                <DataGridTextColumn Header="CustomerJMBG" Binding="{Binding CustomerJMBG}"  Width="1*"/>
+                <DataGridTextColumn Header="Account number" Binding="{Binding AccountNumber}"  Width="1*"/>
 
             </DataGrid.Columns>
         </DataGrid>

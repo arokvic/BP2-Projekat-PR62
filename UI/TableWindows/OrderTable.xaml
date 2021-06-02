@@ -9,13 +9,13 @@
     <Grid>
         <DataGrid x:Name="dGrid" Margin="29,23,29,99" RenderTransformOrigin="0.466,0.498" IsReadOnly="True " AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Order date" Binding="{Binding OrderDate}"/>
-                <DataGridTextColumn Header="Arrival date" Binding="{Binding ArrivalDate}"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-                <DataGridTextColumn Header="Payment card number" Binding="{Binding PaymentCardAccountNumber}"/>
-                <DataGridTextColumn Header="CustomerJMBG" Binding="{Binding CustomerJMBG}"/>
-                <DataGridTextColumn Header="Cart Id" Binding="{Binding OnlineCartId}"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"  Width="1*"/>
+                <DataGridTextColumn Header="Order date" Binding="{Binding OrderDate}" Width="1*"/>
+                <DataGridTextColumn Header="Arrival date" Binding="{Binding ArrivalDate}" Width="1*"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="1*"/>
+                <DataGridTextColumn Header="Payment card number" Binding="{Binding PaymentCardAccountNumber}" Width="1*"/>
+                <DataGridTextColumn Header="CustomerJMBG" Binding="{Binding CustomerJMBG}" Width="1*"/>
+                <DataGridTextColumn Header="Cart Id" Binding="{Binding OnlineCartId}" Width="1*"/>
 
             </DataGrid.Columns>
         </DataGrid>

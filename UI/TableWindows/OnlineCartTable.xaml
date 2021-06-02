@@ -9,10 +9,10 @@
     <Grid>
         <DataGrid x:Name="dGrid" Margin="29,23,29,99" RenderTransformOrigin="0.466,0.498" IsReadOnly="True " AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Number of articles" Binding="{Binding NumberOfArticles}"/>
-                
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"  Width="1*"/>
+                <DataGridTextColumn Header="Number of articles" Binding="{Binding NumberOfArticles}"  Width="1*"/>
+
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"  Width="1*"/>
                
 
             </DataGrid.Columns>

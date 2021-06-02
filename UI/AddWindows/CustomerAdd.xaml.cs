@@ -53,37 +53,42 @@ namespace UI.AddWindows
             {
                 if (nameTxt.Text != "" && lastnameTxt.Text != "" && cmb.Text != "" && JMBGtxt.Text != "")
                 {
-                    if (int.TryParse(JMBGtxt.Text, out _))
-                    {
-                        Customer f = new Customer()
+                   
+
+                        if (int.TryParse(JMBGtxt.Text, out _))
                         {
-                            FirstName = nameTxt.Text,
-                            LastName = lastnameTxt.Text,
-                            Sex = cmb.Text,
-                            JMBG = long.Parse(JMBGtxt.Text)
+                          
+                            
+                                Customer f = new Customer()
+                                {
+                                    FirstName = nameTxt.Text,
+                                    LastName = lastnameTxt.Text,
+                                    Sex = cmb.Text,
+                                    JMBG = long.Parse(JMBGtxt.Text)
 
 
-                        };
+                                };
 
-                        CustomerCRUD fc = new CustomerCRUD();
+                                CustomerCRUD fc = new CustomerCRUD();
 
-                        if (fc.InsertCustomer(f))
-                        {
-                            Close();
+                                if (fc.InsertCustomer(f))
+                                {
+                                    Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Unable to add entity", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
                         }
+                           
+
+                        
                         else
-                        {
-                            MessageBox.Show("Unable to add entity", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Some textboxes have to be numbers!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                         {
+                              MessageBox.Show("Some textboxes have to be numbers!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         
 
-                    }
+                         }
                 }else
                 {
                     MessageBox.Show("Empty fields!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);

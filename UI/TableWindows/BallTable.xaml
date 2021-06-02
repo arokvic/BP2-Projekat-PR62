@@ -10,13 +10,13 @@
         <Grid>
         <DataGrid x:Name="dGrid" Margin="29,23,29,99" RenderTransformOrigin="0.466,0.498" IsReadOnly="True " AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Ball type" Binding="{Binding BallType}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-                <DataGridTextColumn Header="OnlineCartId" Binding="{Binding OnlineCartId}"/>
-                <DataGridTextColumn Header="CustomerJMBG" Binding="{Binding CustomerJMBG}"/>
-                <DataGridTextColumn Header="Factory Id" Binding="{Binding FactoryId}"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="1*"/>
+                <DataGridTextColumn Header="Ball type" Binding="{Binding BallType}"  Width="1*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"  Width="1*"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"  Width="1*"/>
+                <DataGridTextColumn Header="OnlineCartId" Binding="{Binding OnlineCartId}"  Width="1*"/>
+                <DataGridTextColumn Header="CustomerJMBG" Binding="{Binding CustomerJMBG}"  Width="1*"/>
+                <DataGridTextColumn Header="Factory Id" Binding="{Binding FactoryId}"  Width="1*"/>
                 
             </DataGrid.Columns>
         </DataGrid>
