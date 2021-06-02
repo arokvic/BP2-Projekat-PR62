@@ -1,0 +1,30 @@
+﻿<Window x:Class="UI.AddWindows.OrderAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.AddWindows"
+        mc:Ignorable="d"
+     Title="BallAdd" Height="334.426" Width="445.492">
+    <Grid Margin="0,0,2,2">
+        <ComboBox Name="cmbA" Margin="196,112,119,163" RenderTransformOrigin="0.495,-0.43" ItemsSource="{Binding Anames}"/>
+
+
+        <ComboBox Name="cmbC" Margin="196,163,119,112" RenderTransformOrigin="0.495,-0.43" ItemsSource="{Binding Cnames}" >
+
+        </ComboBox>
+        <ComboBox Name="cmbO" Margin="196,206,119,69" RenderTransformOrigin="0.495,-0.43" ItemsSource="{Binding Onames}">
+
+        </ComboBox>
+        <Button x:Name="addBtn" Content="Add" HorizontalAlignment="Left" Margin="170,261,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-1.082,-7.48" Click="AddBtn_Click"/>
+        <Label Content="Order date" HorizontalAlignment="Left" Margin="73,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.47"/>
+        <Label Content="Arrival date" HorizontalAlignment="Left" Margin="73,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.357,2.122"/>
+        <Label Content="Online cart" HorizontalAlignment="Left" Margin="73,206,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.357,2.122"/>
+        <Label Content="Customer" HorizontalAlignment="Left" Margin="73,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.357,2.122"/>
+        <Label Content="Account number" HorizontalAlignment="Left" Margin="73,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.357,2.122"/>
+        <TextBox x:Name="odtxt" HorizontalAlignment="Left" Height="23" Margin="196,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.531,0.517"/>
+        <TextBox x:Name="adtxt" HorizontalAlignment="Left" Height="23" Margin="196,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.531,0.517"/>
+
+    </Grid>
+</Window>
+

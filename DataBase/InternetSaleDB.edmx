@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InternetSaleDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="InternetSaleDBStoreContainer">
+    <EntitySet Name="Factories" EntityType="InternetSaleDB.Store.Factories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="InternetSaleDB.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="InternetSaleDB.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentCards" EntityType="InternetSaleDB.Store.PaymentCards" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OnlineCarts" EntityType="InternetSaleDB.Store.OnlineCarts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders" EntityType="InternetSaleDB.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products_Ball" EntityType="InternetSaleDB.Store.Products_Ball" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products_Sneakers" EntityType="InternetSaleDB.Store.Products_Sneakers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products_Jersey" EntityType="InternetSaleDB.Store.Products_Jersey" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentCards_Mastercard" EntityType="InternetSaleDB.Store.PaymentCards_Mastercard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentCards_Visacard" EntityType="InternetSaleDB.Store.PaymentCards_Visacard" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FactoryProduct" Association="InternetSaleDB.Store.FactoryProduct">
+      <End Role="Factory" EntitySet="Factories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerProduct" Association="InternetSaleDB.Store.CustomerProduct">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerPaymentCard" Association="InternetSaleDB.Store.CustomerPaymentCard">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="PaymentCard" EntitySet="PaymentCards" />
+    </AssociationSet>
+    <AssociationSet Name="ProductOnlineCart" Association="InternetSaleDB.Store.ProductOnlineCart">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OnlineCart" EntitySet="OnlineCarts" />
+    </AssociationSet>
+    <AssociationSet Name="OrderPaymentCard" Association="InternetSaleDB.Store.OrderPaymentCard">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="PaymentCard" EntitySet="PaymentCards" />
+    </AssociationSet>
+    <AssociationSet Name="OrderCustomer" Association="InternetSaleDB.Store.OrderCustomer">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="OrderOnlineCart" Association="InternetSaleDB.Store.OrderOnlineCart">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OnlineCart" EntitySet="OnlineCarts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ball_inherits_Product" Association="InternetSaleDB.Store.FK_Ball_inherits_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Ball" EntitySet="Products_Ball" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sneakers_inherits_Product" Association="InternetSaleDB.Store.FK_Sneakers_inherits_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Sneakers" EntitySet="Products_Sneakers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jersey_inherits_Product" Association="InternetSaleDB.Store.FK_Jersey_inherits_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Jersey" EntitySet="Products_Jersey" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mastercard_inherits_PaymentCard" Association="InternetSaleDB.Store.FK_Mastercard_inherits_PaymentCard">
+      <End Role="PaymentCard" EntitySet="PaymentCards" />
+      <End Role="Mastercard" EntitySet="PaymentCards_Mastercard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visacard_inherits_PaymentCard" Association="InternetSaleDB.Store.FK_Visacard_inherits_PaymentCard">
+      <End Role="PaymentCard" EntitySet="PaymentCards" />
+      <End Role="Visacard" EntitySet="PaymentCards_Visacard" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Factories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FactoryId" Type="int" Nullable="false" />
+    <Property Name="CustomerJMBG" Type="bigint" Nullable="true" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OnlineCartId" Type="int" Nullable="true" />
+    <Property Name="Price" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="JMBG" />
+    </Key>
+    <Property Name="JMBG" Type="bigint" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentCards">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="AccountNumber" Type="bigint" Nullable="false" />
+    <Property Name="CustomerJMBG" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OnlineCarts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberOfArticles" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
+    <Property Name="PaymentCardAccountNumber" Type="bigint" Nullable="false" />
+    <Property Name="CustomerJMBG" Type="bigint" Nullable="false" />
+    <Property Name="OnlineCartId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products_Ball">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BallType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products_Sneakers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products_Jersey">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="Club" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentCards_Mastercard">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="AccountNumber" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentCards_Visacard">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="AccountNumber" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FactoryProduct">
+    <End Role="Factory" Type="InternetSaleDB.Store.Factories" Multiplicity="1" />
+    <End Role="Product" Type="InternetSaleDB.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="FactoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerProduct">
+    <End Role="Customer" Type="InternetSaleDB.Store.Customers" Multiplicity="0..1" />
+    <End Role="Product" Type="InternetSaleDB.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CustomerJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerPaymentCard">
+    <End Role="Customer" Type="InternetSaleDB.Store.Customers" Multiplicity="1" />
+    <End Role="PaymentCard" Type="InternetSaleDB.Store.PaymentCards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="PaymentCard">
+        <PropertyRef Name="CustomerJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductOnlineCart">
+    <End Role="Product" Type="InternetSaleDB.Store.Products" Multiplicity="*" />
+    <End Role="OnlineCart" Type="InternetSaleDB.Store.OnlineCarts" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="OnlineCart">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="OnlineCartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderPaymentCard">
+    <End Role="Order" Type="InternetSaleDB.Store.Orders" Multiplicity="*" />
+    <End Role="PaymentCard" Type="InternetSaleDB.Store.PaymentCards" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentCard">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="PaymentCardAccountNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderCustomer">
+    <End Role="Order" Type="InternetSaleDB.Store.Orders" Multiplicity="*" />
+    <End Role="Customer" Type="InternetSaleDB.Store.Customers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="JMBG" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerJMBG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderOnlineCart">
+    <End Role="Order" Type="InternetSaleDB.Store.Orders" Multiplicity="*" />
+    <End Role="OnlineCart" Type="InternetSaleDB.Store.OnlineCarts" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OnlineCart">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OnlineCartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ball_inherits_Product">
+    <End Role="Product" Type="InternetSaleDB.Store.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ball" Type="InternetSaleDB.Store.Products_Ball" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ball">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sneakers_inherits_Product">
+    <End Role="Product" Type="InternetSaleDB.Store.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sneakers" Type="InternetSaleDB.Store.Products_Sneakers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sneakers">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jersey_inherits_Product">
+    <End Role="Product" Type="InternetSaleDB.Store.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Jersey" Type="InternetSaleDB.Store.Products_Jersey" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jersey">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mastercard_inherits_PaymentCard">
+    <End Role="PaymentCard" Type="InternetSaleDB.Store.PaymentCards" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Mastercard" Type="InternetSaleDB.Store.PaymentCards_Mastercard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentCard">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="Mastercard">
+        <PropertyRef Name="AccountNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visacard_inherits_PaymentCard">
+    <End Role="PaymentCard" Type="InternetSaleDB.Store.PaymentCards" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Visacard" Type="InternetSaleDB.Store.PaymentCards_Visacard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentCard">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="Visacard">
+        <PropertyRef Name="AccountNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="InternetSaleDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="InternetSaleDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Factories" EntityType="InternetSaleDB.Factory" />
+          <EntitySet Name="Products" EntityType="InternetSaleDB.Product" />
+          <EntitySet Name="Customers" EntityType="InternetSaleDB.Customer" />
+          <EntitySet Name="PaymentCards" EntityType="InternetSaleDB.PaymentCard" />
+          <AssociationSet Name="FactoryProduct" Association="InternetSaleDB.FactoryProduct">
+            <End Role="Factory" EntitySet="Factories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerProduct" Association="InternetSaleDB.CustomerProduct">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerPaymentCard" Association="InternetSaleDB.CustomerPaymentCard">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="PaymentCard" EntitySet="PaymentCards" />
+          </AssociationSet>
+          <EntitySet Name="OnlineCarts" EntityType="InternetSaleDB.OnlineCart" />
+          <AssociationSet Name="ProductOnlineCart" Association="InternetSaleDB.ProductOnlineCart">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OnlineCart" EntitySet="OnlineCarts" />
+          </AssociationSet>
+          <EntitySet Name="Orders" EntityType="InternetSaleDB.Order" />
+          <AssociationSet Name="OrderPaymentCard" Association="InternetSaleDB.OrderPaymentCard">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="PaymentCard" EntitySet="PaymentCards" />
+          </AssociationSet>
+          <AssociationSet Name="OrderCustomer" Association="InternetSaleDB.OrderCustomer">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="OrderOnlineCart" Association="InternetSaleDB.OrderOnlineCart">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OnlineCart" EntitySet="OnlineCarts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Factory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="InternetSaleDB.FactoryProduct" FromRole="Factory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Factory" Relationship="InternetSaleDB.FactoryProduct" FromRole="Product" ToRole="Factory" />
+          <Property Name="FactoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="InternetSaleDB.CustomerProduct" FromRole="Product" ToRole="Customer" />
+          <Property Name="CustomerJMBG" Type="Int64" Nullable="true" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="OnlineCart" Relationship="InternetSaleDB.ProductOnlineCart" FromRole="Product" ToRole="OnlineCart" />
+          <Property Name="OnlineCartId" Type="Int32" Nullable="true" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="JMBG" />
+          </Key>
+          <Property Name="JMBG" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="Sex" Type="String" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="InternetSaleDB.CustomerProduct" FromRole="Customer" ToRole="Product" />
+          <NavigationProperty Name="PaymentCards" Relationship="InternetSaleDB.CustomerPaymentCard" FromRole="Customer" ToRole="PaymentCard" />
+          <NavigationProperty Name="Orders" Relationship="InternetSaleDB.OrderCustomer" FromRole="Customer" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="PaymentCard">
+          <Key>
+            <PropertyRef Name="AccountNumber" />
+          </Key>
+          <Property Name="AccountNumber" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="Customer" Relationship="InternetSaleDB.CustomerPaymentCard" FromRole="PaymentCard" ToRole="Customer" />
+          <Property Name="CustomerJMBG" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="InternetSaleDB.OrderPaymentCard" FromRole="PaymentCard" ToRole="Order" />
+        </EntityType>
+        <Association Name="FactoryProduct">
+          <End Type="InternetSaleDB.Factory" Role="Factory" Multiplicity="1" />
+          <End Type="InternetSaleDB.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="FactoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerProduct">
+          <End Type="InternetSaleDB.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="InternetSaleDB.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CustomerJMBG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerPaymentCard">
+          <End Type="InternetSaleDB.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="InternetSaleDB.PaymentCard" Role="PaymentCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="PaymentCard">
+              <PropertyRef Name="CustomerJMBG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OnlineCart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberOfArticles" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="InternetSaleDB.ProductOnlineCart" FromRole="OnlineCart" ToRole="Product" />
+          <NavigationProperty Name="Orders" Relationship="InternetSaleDB.OrderOnlineCart" FromRole="OnlineCart" ToRole="Order" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+        </EntityType>
+        <Association Name="ProductOnlineCart">
+          <End Type="InternetSaleDB.Product" Role="Product" Multiplicity="*" />
+          <End Type="InternetSaleDB.OnlineCart" Role="OnlineCart" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OnlineCart">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="OnlineCartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="PaymentCard" Relationship="InternetSaleDB.OrderPaymentCard" FromRole="Order" ToRole="PaymentCard" />
+          <Property Name="PaymentCardAccountNumber" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="InternetSaleDB.OrderCustomer" FromRole="Order" ToRole="Customer" />
+          <Property Name="CustomerJMBG" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="OnlineCart" Relationship="InternetSaleDB.OrderOnlineCart" FromRole="Order" ToRole="OnlineCart" />
+          <Property Name="OnlineCartId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="OrderPaymentCard">
+          <End Type="InternetSaleDB.Order" Role="Order" Multiplicity="*" />
+          <End Type="InternetSaleDB.PaymentCard" Role="PaymentCard" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentCard">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="PaymentCardAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderCustomer">
+          <End Type="InternetSaleDB.Order" Role="Order" Multiplicity="*" />
+          <End Type="InternetSaleDB.Customer" Role="Customer" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="JMBG" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CustomerJMBG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderOnlineCart">
+          <End Type="InternetSaleDB.Order" Role="Order" Multiplicity="*" />
+          <End Type="InternetSaleDB.OnlineCart" Role="OnlineCart" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="OnlineCart">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OnlineCartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Ball" BaseType="InternetSaleDB.Product" >
+          <Property Name="BallType" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sneakers" BaseType="InternetSaleDB.Product" >
+          <Property Name="Size" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jersey" BaseType="InternetSaleDB.Product" >
+          <Property Name="Size" Type="Int32" Nullable="false" />
+          <Property Name="Club" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mastercard" BaseType="InternetSaleDB.PaymentCard" />
+        <EntityType Name="Visacard" BaseType="InternetSaleDB.PaymentCard" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InternetSaleDBStoreContainer" CdmEntityContainer="InternetSaleDBContext">
+    <EntitySetMapping Name="Factories">
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Factory)">
+        <MappingFragment StoreEntitySet="Factories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+          <ScalarProperty Name="CustomerJMBG" ColumnName="CustomerJMBG" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OnlineCartId" ColumnName="OnlineCartId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Ball)">
+        <MappingFragment StoreEntitySet="Products_Ball">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BallType" ColumnName="BallType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Sneakers)">
+        <MappingFragment StoreEntitySet="Products_Sneakers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Jersey)">
+        <MappingFragment StoreEntitySet="Products_Jersey">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Club" ColumnName="Club" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Customer)">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentCards">
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.PaymentCard)">
+        <MappingFragment StoreEntitySet="PaymentCards">
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="CustomerJMBG" ColumnName="CustomerJMBG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Mastercard)">
+        <MappingFragment StoreEntitySet="PaymentCards_Mastercard">
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Visacard)">
+        <MappingFragment StoreEntitySet="PaymentCards_Visacard">
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnlineCarts">
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.OnlineCart)">
+        <MappingFragment StoreEntitySet="OnlineCarts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumberOfArticles" ColumnName="NumberOfArticles" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(InternetSaleDB.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="PaymentCardAccountNumber" ColumnName="PaymentCardAccountNumber" />
+          <ScalarProperty Name="CustomerJMBG" ColumnName="CustomerJMBG" />
+          <ScalarProperty Name="OnlineCartId" ColumnName="OnlineCartId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

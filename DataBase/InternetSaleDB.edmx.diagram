@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f1964f9f282b4e6a8e8df8081eae8bff" Name="Diagram1" ZoomLevel="85" >
+        <EntityTypeShape EntityType="InternetSaleDB.Factory" Width="1.5" PointX="7" PointY="1.375" />
+        <EntityTypeShape EntityType="InternetSaleDB.Product" Width="1.5" PointX="7" PointY="3.875" />
+        <EntityTypeShape EntityType="InternetSaleDB.Customer" Width="1.5" PointX="2.75" PointY="3.875" />
+        <EntityTypeShape EntityType="InternetSaleDB.PaymentCard" Width="1.5" PointX="2.625" PointY="7" />
+        <AssociationConnector Association="InternetSaleDB.FactoryProduct" />
+        <AssociationConnector Association="InternetSaleDB.CustomerProduct" />
+        <AssociationConnector Association="InternetSaleDB.CustomerPaymentCard" />
+        <EntityTypeShape EntityType="InternetSaleDB.OnlineCart" Width="1.5" PointX="8.125" PointY="9.5" />
+        <AssociationConnector Association="InternetSaleDB.ProductOnlineCart" />
+        <EntityTypeShape EntityType="InternetSaleDB.Order" Width="1.5" PointX="5.25" PointY="9.25" />
+        <AssociationConnector Association="InternetSaleDB.OrderPaymentCard" />
+        <AssociationConnector Association="InternetSaleDB.OrderCustomer" />
+        <AssociationConnector Association="InternetSaleDB.OrderOnlineCart" />
+        <EntityTypeShape EntityType="InternetSaleDB.Ball" Width="1.5" PointX="12.625" PointY="4.125" />
+        <InheritanceConnector EntityType="InternetSaleDB.Ball" />
+        <EntityTypeShape EntityType="InternetSaleDB.Sneakers" Width="1.5" PointX="12.625" PointY="5.375" />
+        <InheritanceConnector EntityType="InternetSaleDB.Sneakers" />
+        <EntityTypeShape EntityType="InternetSaleDB.Jersey" Width="1.5" PointX="12.625" PointY="6.625" />
+        <InheritanceConnector EntityType="InternetSaleDB.Jersey" />
+        <EntityTypeShape EntityType="InternetSaleDB.Mastercard" Width="1.5" PointX="1.375" PointY="11.75" />
+        <InheritanceConnector EntityType="InternetSaleDB.Mastercard" />
+        <EntityTypeShape EntityType="InternetSaleDB.Visacard" Width="1.5" PointX="0.5" PointY="10.25" />
+        <InheritanceConnector EntityType="InternetSaleDB.Visacard" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

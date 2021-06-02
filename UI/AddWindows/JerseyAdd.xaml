@@ -1,0 +1,42 @@
+﻿<Window x:Class="UI.AddWindows.JerseyAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.AddWindows"
+        mc:Ignorable="d"
+        Title="JerseyAdd" Height="411.198" Width="480.925">
+    <Grid Margin="0,0,-8,-54">
+        <ComboBox Name="cmb" Margin="196,145,119,263" RenderTransformOrigin="0.495,-0.43"  >
+            <ComboBoxItem Content="40"/>
+            <ComboBoxItem Content="43"/>
+            <ComboBoxItem Content="46"/>
+            <ComboBoxItem Content="49"/>
+            <ComboBoxItem Content="52"/>
+            <ComboBoxItem Content="55"/>
+
+        </ComboBox>
+        <ComboBox Name="cmbF" Margin="196,188,119,220" RenderTransformOrigin="0.495,-0.43" ItemsSource="{Binding Fnames}"/>
+
+
+        <ComboBox Name="cmbC" Margin="196,231,119,177" RenderTransformOrigin="0.495,-0.43" ItemsSource="{Binding Cnames}" >
+
+        </ComboBox>
+        <ComboBox Name="cmbO" Margin="196,272,119,136" RenderTransformOrigin="0.495,-0.43" ItemsSource="{Binding Onames}">
+
+        </ComboBox>
+        <Button x:Name="addBtn" Content="Add" HorizontalAlignment="Left" Margin="196,313,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-1.082,-7.48" Click="AddBtn_Click"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="103,32,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.47"/>
+        <Label Content="Size" HorizontalAlignment="Left" Margin="103,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.357,2.122"/>
+        <Label Content="Online cart" HorizontalAlignment="Left" Margin="103,272,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.357,2.122"/>
+        <Label Content="Customer" HorizontalAlignment="Left" Margin="103,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.357,2.122"/>
+        <Label Content="Factory" HorizontalAlignment="Left" Margin="103,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.357,2.122"/>
+        <TextBox x:Name="nameTxt" HorizontalAlignment="Left" Height="23" Margin="196,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.531,0.517"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="103,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.47"/>
+        <TextBox x:Name="pricetxt" HorizontalAlignment="Left" Height="23" Margin="196,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.531,0.517"/>
+        <Label Content="Club" HorizontalAlignment="Left" Margin="103,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.47"/>
+        <TextBox x:Name="clbtxt" Height="23" Margin="196,72,165,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-0.531,0.517"/>
+
+    </Grid>
+
+</Window>
